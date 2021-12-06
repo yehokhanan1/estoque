@@ -5,6 +5,7 @@ print("-------------------------------------------------------------------------
 print("\t\t\t\tBem Vindo ao Estoque KASSAI")
 print("--------------------------------------------------------------------------------------")
 class estoqueKassai():
+# verificação se tem algo no txt se ja tiver adicionar na lista
     def __init__(self):
         with open('relogio_preto.txt', 'r') as arquivo1:
             arquivo = arquivo1.read()
@@ -62,6 +63,7 @@ class estoqueKassai():
                 with open('relogio_verde.txt', 'r') as arquivo1:
                     arquivo = arquivo1.read()
                     verde.append(arquivo)
+# escrever no arquivo txt         
     def preto(self,preto1):
         with open('relogio_preto.txt', 'w') as digit:
             digit.write(str(preto1))
@@ -80,15 +82,17 @@ class estoqueKassai():
         else:
             print("\n\t\tOpção invalida! Digite novamente\n")
             start.menu()
+# alternativas estoque            
     def estoque(self):
         while True:
             menu = input("O que deseja fazer?\n\tDigite 1 = Verificar estoque\n\tDigite 2 = Adicionar estoque\n\tDigite 3 = Retirar estoque\n\tDigite 'sair' para fechar o programa\nR: ")
+# verificar estoque            
             if menu == '1':
                 print("--------------------------------------------------------------------------------------")
                 total = int(preto[-1]) + int(verde[-1]) + int(pretoCafe[-1])
                 print("\tRelogios preto", preto[-1],"\n\tRelogios preto cafe", pretoCafe[-1],"\n\tRelogios verde", verde[-1],"\n\tTotal de itens =", total)
                 start.menu()
-
+# adicionar estoque
             elif menu == '2':
                 print("--------------------------------------------------------------------------------------")
                 add_estoque = input("Qual relogio vai adicionar?\n\tDigite 1 = relogio preto\n\tDigite 2 = relogio preto cafe\n\tDigite 3 = relogio verde\nR: ")
@@ -118,7 +122,7 @@ class estoqueKassai():
                 else:
                     print("\n\t\tOpção invalida! Volte ao menu\n")
                     start.estoque()
-
+# retirada estoque
             elif menu == '3':
                 print("--------------------------------------------------------------------------------------")
                 baixa_estoque = input("Qual relogio vai retirar?\n\tDigite 1 = relogio preto\n\tDigite 2 = relogio preto cafe\n\tDigite 3 = relogio verde\nR: ")
