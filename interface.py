@@ -119,10 +119,10 @@ def retirarPro():
                 sucess.place(x=10,y=140, width=350, height=20)
             else:
                 fail = Label(janela4, text="Digite apenas numero inteiros. Tente novamente", background='red', foreground='#dde')
-                fail.place(x=10,y=95, width=350, height=20)
+                fail.place(x=10,y=140, width=350, height=20)
         else:
             fail = Label(janela4, text="Produto não encontrado. Tente novamente", background='red', foreground='#dde')
-            fail.place(x=10,y=95, width=350, height=20) 
+            fail.place(x=10,y=140, width=350, height=20) 
     retirar1 = Button(janela4, text="Retirar", background='#003', foreground="#dde", command=retirar)
     retirar1.place(x=10,y=110, width=100, height=25)                 
     
