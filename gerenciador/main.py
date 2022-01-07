@@ -126,7 +126,27 @@ def retirarPro():
             fail = Label(janela4, text="Produto não encontrado. Tente novamente", background='red', foreground='#dde')
             fail.place(x=10,y=140, width=350, height=20) 
     retirar1 = Button(janela4, text="Retirar", background='#003', foreground="#dde", command=retirar)
-    retirar1.place(x=10,y=110, width=100, height=25)   
+    retirar1.place(x=10,y=110, width=100, height=25)
+
+def deletPro():
+    janela5 = Tk()
+    janela5.title("Excluir")
+    janela5.geometry("320x120")
+    janela5.configure(background="#001")
+    verificarPro = Label(janela5, text="Nome do produto", background="#001",foreground="#dde", anchor=W)
+    verificarPro.place(x=10,y=10)
+    verificar = Entry(janela5)
+    verificar.place(x=10,y=35, width=300, height=20)
+    def delet():
+        if os.path.exists(f"produtos/{nomeArquivoTratado(verificar.get())}"):
+            os.remove(f"produtos/{nomeArquivoTratado(verificar.get())}")
+            sucess = Label(janela5, text="Produto excluido do estoque.", background='green', foreground='#dde')
+            sucess.place(x=10,y=95, width=250, height=20)
+        else:
+            fail = Label(janela5, text="Produto não encontrado. Tente novamente", background='red', foreground='#dde')
+            fail.place(x=10,y=95, width=250, height=20)
+    verificar2 = Button(janela5, text="Excluir", background="#003", foreground="#dde", command=delet)
+    verificar2.place(x=10,y=60, width=100, height=25)
 
 adProduto = Button(janela, text="Adicionar novo produto ", background="#003", foreground="#dde",command=adicionarPro).place(x=15,y=30, width=250, height=25)
 
@@ -135,5 +155,7 @@ verProduto = Button(janela, text="Verficar produtos ", background="#003", foregr
 addProdutos = Button(janela, text="Adicionar produto existente", background="#003", foreground="#dde", command=addProduto).place(x=15, y=110, width=250, height=25)
 
 retirarPro = Button(janela, text="Retirar produto existente", background="#003", foreground="#dde", command=retirarPro).place(x=15, y=150, width=250, height=25)
+
+excluirPro = Button(janela, text="Excluir produto existente", background="#003", foreground="#dde", command=deletPro).place(x=15, y=190, width=250, height=25)
 
 janela.mainloop()
